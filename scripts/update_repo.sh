@@ -2,20 +2,24 @@
 
 set -e
 
+# Define the working directory
 WORKDIR=$(pwd)
 
+# Define the APT repository directory
 REPO_DIR="$WORKDIR/apt-repo"
 
-# create necessary directories
-mkdir -p "$REPO_DIR/{conf,dists,incoming,indices,pool,db}"
+# Create necessary directories
+mkdir -p "$REPO_DIR/conf"
+mkdir -p "$REPO_DIR/dists/debian-12/main/binary-amd64"
+mkdir -p "$REPO_DIR/pool/main"
 
-# repo configuration
+# Configuration of the APT repository
 cat > "$REPO_DIR/conf/distributions" <<EOF
-Codename: focal
+Codename: debian-12
 Suite: stable
 Components: main
 Architectures: amd64
 EOF
 
-# add packages to the repo
-reprepro -b "$REPO_DIR" includedeb focal "$WORKDIR/output/*.deb"
+# Add packages to the repository
+reprepro -b "$REPO_DIR" includedeb debian-12 "$WORKDIR/output/*.deb"
