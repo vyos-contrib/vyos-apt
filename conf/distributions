@@ -1,0 +1,4 @@
+Codename: debian-12
+Suite: stable
+Components: main
+Architectures: amd64
