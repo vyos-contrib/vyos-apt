@@ -1,6 +1,9 @@
 # vyos-apt
 
+> **⚠️ This project is not functional yet. It is just a skeleton of something we plan to create in the future.**
+
 This repository contains the configuration and scripts necessary to build VyOS packages and update an APT repository automatically using Jenkins and Docker. It also includes steps to upload the repository to Cloudflare R2.
+
 
 ## Directory Structure
 
